@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form form-center">
+        <img src="./public/bird_2.png" alt="image of logo" class="logo-img" />
+        <p class="welcome">Welcome back</p>
+
+        <div class="form-container form-container-add">
+          <p class="sign-in-sub-txt">
+            Glad to see you again👋 <br />
+            Login to your account below
+          </p>
+          <form>
+            <div class="form-box">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                placeholder="enter email..."
+                id="signInEmail"
+              />
+            </div>
+
+            <div class="form-box">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                placeholder="enter password..."
+                id="signInPassword"
+              />
+            </div>
+
+            <button type="submit" class="btn-right" id="signInBtn">
+              Login
+            </button>
+          </form>
+
+          <p class="bottom-txt">
+            Don't have an account?
+            <a href="./index.html">Sign up for Free</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="sign-in.js"></script>
+  </body>
+</html>

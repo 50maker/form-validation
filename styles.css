@@ -1,0 +1,190 @@
+/*
+- FONT sizes (px):
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+- Font weights
+Default:400;
+Medium: 500
+Semi-bold: 600
+bold: 700
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* font-size: 10px; */
+  /*10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+/* form-container */
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  margin: auto;
+  padding: 4rem;
+
+  max-width: fit-content;
+  font-family: sans-serif;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #44444467;
+  background-color: rgb(248, 252, 255);
+}
+
+/* Form-details */
+
+.logo-img {
+  height: 5.2rem;
+}
+
+.sign-up,
+.welcome {
+  margin-bottom: 0.4rem;
+
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.sign-up-sub-txt {
+  margin-bottom: 1.6rem;
+
+  color: #444444e1;
+  font-size: 1.2rem;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 1.2rem;
+}
+
+.form-box {
+  margin-bottom: 2.4rem;
+}
+
+.form-box label {
+  font-size: 1.2rem;
+  display: block;
+}
+
+.form-box input,
+button,
+select {
+  margin-top: 0.4rem;
+  padding: 0.8rem 1.2rem;
+
+  box-shadow: 1px 1px 10px #44444433;
+
+  width: 24rem;
+  border: none;
+  border-radius: 4px;
+}
+
+.form-box select {
+  color: #444444d3;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.btn-left {
+  background-color: white;
+}
+
+.btn-right {
+  color: white;
+  background-color: rgba(0, 0, 139, 0.712);
+}
+
+.bottom-txt {
+  margin-top: 2rem;
+
+  text-align: center;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+a {
+  font-weight: 600;
+  text-decoration: none;
+  color: rgba(0, 0, 139, 0.815);
+}
+/***********************************/
+/* Sign In Form Additional Designs */
+/***********************************/
+
+.form-center {
+  text-align: center;
+}
+
+.form-container-add {
+  display: block;
+}
+
+.form-box {
+  text-align: left;
+}
+
+.sign-in-sub-txt {
+  margin-bottom: 1.6rem;
+
+  color: #444444e1;
+  font-size: 1.2rem;
+}
+
+/*Popup*/
+.popup {
+  width: 400px;
+  background: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup img {
+  width: 10rem;
+  margin-top: -5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+  font-size: 3.8rem;
+  font-weight: 500;
+  margin: 3rem 0 1rem;
+}
+
+.popup button {
+  margin-top: 50px;
+  padding: 10px 0;
+}
