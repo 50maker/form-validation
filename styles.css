@@ -11,6 +11,8 @@ Medium: 500
 Semi-bold: 600
 bold: 700
 */
+
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -18,26 +20,21 @@ bold: 700
 }
 
 html {
-  /* font-size: 10px; */
-  /*10px / 16px = 0.625 = 62.5% */
-  /* Percentage of user's browser font-size setting */
   font-size: 62.5%;
   overflow-x: hidden;
 }
-
-/* form-container */
 
 .container {
   height: 100vh;
   display: flex;
   justify-content: center;
+
   align-items: center;
 }
 
 .form {
   margin: auto;
   padding: 4rem;
-
   max-width: fit-content;
   font-family: sans-serif;
   font-size: 1.8rem;
@@ -47,8 +44,6 @@ html {
   background-color: rgb(248, 252, 255);
 }
 
-/* Form-details */
-
 .logo-img {
   height: 5.2rem;
 }
@@ -56,22 +51,31 @@ html {
 .sign-up,
 .welcome {
   margin-bottom: 0.4rem;
-
   font-size: 2.4rem;
   font-weight: 600;
 }
 
-.sign-up-sub-txt {
+.sign-up-sub-txt,
+.sign-in-sub-txt {
   margin-bottom: 1.6rem;
-
   color: #444444e1;
   font-size: 1.2rem;
 }
 
 .form-container {
   display: flex;
-  justify-content: space-around;
+
+  justify-content: space-between;
   gap: 1.2rem;
+}
+
+.form-container-add {
+  flex-direction: column;
+}
+
+.form-left,
+.form-right {
+  width: 100%;
 }
 
 .form-box {
@@ -88,10 +92,8 @@ button,
 select {
   margin-top: 0.4rem;
   padding: 0.8rem 1.2rem;
-
   box-shadow: 1px 1px 10px #44444433;
-
-  width: 24rem;
+  width: 100%;
   border: none;
   border-radius: 4px;
 }
@@ -100,22 +102,47 @@ select {
   color: #444444d3;
 }
 
-button:hover {
+.form-buttons {
+  display: flex;
+  justify-content: space-between; /* Align buttons side by side */
+  gap: 1rem; /* Space between buttons */
+}
+
+.form-buttons .btn-left,
+.form-buttons .btn-right {
+  width: 48%; /* Adjust width to fit side by side */
+}
+
+button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0, 0, 139, 0.712);
+  box-shadow: 1px 1px 10px #44444433;
   cursor: pointer;
 }
 
+.btn-left:hover {
+  background-color: rgb(231, 231, 239);
+}
+.btn-right:hover {
+  background-color: rgba(0, 0, 139, 0.85);
+}
+
 .btn-left {
-  background-color: white;
+  background-color: #fff;
+  color: #000;
 }
 
 .btn-right {
-  color: white;
   background-color: rgba(0, 0, 139, 0.712);
+  color: #fff;
 }
 
 .bottom-txt {
   margin-top: 2rem;
-
   text-align: center;
   font-size: 1.2rem;
   color: #444;
@@ -126,36 +153,15 @@ a {
   text-decoration: none;
   color: rgba(0, 0, 139, 0.815);
 }
-/***********************************/
-/* Sign In Form Additional Designs */
-/***********************************/
 
-.form-center {
-  text-align: center;
-}
-
-.form-container-add {
-  display: block;
-}
-
-.form-box {
-  text-align: left;
-}
-
-.sign-in-sub-txt {
-  margin-bottom: 1.6rem;
-
-  color: #444444e1;
-  font-size: 1.2rem;
-}
-
-/*Popup*/
+/* Popup */
 .popup {
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   background: #fff;
   border-radius: 6px;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.1);
   text-align: center;
@@ -163,6 +169,7 @@ a {
   color: #333;
   visibility: hidden;
   transition: transform 0.4s, top 0.4s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .open-popup {
@@ -184,7 +191,58 @@ a {
   margin: 3rem 0 1rem;
 }
 
+.popup p {
+  font-size: 1.6rem;
+}
+
 .popup button {
   margin-top: 50px;
   padding: 10px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 700px) {
+  .form {
+    padding: 2rem;
+  }
+
+  .form-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-box input,
+  button,
+  select {
+    width: 100%;
+  }
+
+  .popup img {
+    width: 8rem;
+    margin-top: -3rem;
+  }
+
+  .popup h2 {
+    font-size: 3rem;
+  }
+
+  .popup p {
+    font-size: 1.4rem;
+  }
+
+  .popup button {
+    padding: 8px 0;
+  }
+
+  .form-buttons {
+    display: flex;
+    flex-direction: column; /* Stack vertically */
+    align-items: stretch;
+    gap: 1rem; /* Space between buttons */
+  }
+
+  .form-buttons .btn-left,
+  .form-buttons .btn-right {
+    width: 100%; /* Full width for stacked buttons */
+  }
 }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sign In</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -14,8 +14,7 @@
 
         <div class="form-container form-container-add">
           <p class="sign-in-sub-txt">
-            Glad to see you again👋 <br />
-            Login to your account below
+            Glad to see you again👋 <br />Login to your account below
           </p>
           <form>
             <div class="form-box">
@@ -42,12 +41,20 @@
           </form>
 
           <p class="bottom-txt">
-            Don't have an account?
-            <a href="./index.html">Sign up for Free</a>
+            Don't have an account? <a href="./index.html">Sign up for Free</a>
           </p>
         </div>
       </div>
     </div>
+
+    <!-- Popup Structure -->
+    <div class="popup" id="popup">
+      <img src="./public/cross.png" alt="popup-image" id="popupImage" />
+      <h2 id="popupTitle">Error</h2>
+      <p id="popupMessage"></p>
+      <button type="button" class="btn-right" id="okBtn">OK</button>
+    </div>
+
     <script src="sign-in.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Sign Up</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -11,41 +11,37 @@
     <div class="container container-signin">
       <div class="form" id="form">
         <img src="./public/bird_2.png" alt="Image of logo" class="logo-img" />
-
         <p class="sign-up">Sign up</p>
         <p class="sign-up-sub-txt">
           Enter your details below to create your account and get started.
         </p>
-
         <form>
           <div class="form-container">
             <!-- Left side of the form -->
             <div class="form-left">
               <div class="form-box">
-                <label for="name">Full Name</label>
+                <label for="full-name">Full Name</label>
                 <input id="full-name" type="text" placeholder="enter.." />
+              </div>
+              <div class="form-box">
+                <label for="password">Password</label>
+                <input type="password" placeholder="enter.." id="password" />
+              </div>
+
+              <div class="form-box">
+                <label for="confirm-password">Confirm Password</label>
+                <input
+                  type="password"
+                  placeholder="enter.."
+                  id="confirm-password"
+                />
               </div>
 
               <div class="form-box">
                 <label for="dob">Date of Birth</label>
                 <input type="date" placeholder="MM / DD / YY" id="dob" />
               </div>
-
-              <div class="form-box">
-                <label for="option">Nationality</label>
-                <select name="Nationality" id="nationality">
-                  <option value="0" hidden>Select</option>
-                </select>
-              </div>
-
-              <div class="form-box">
-                <label for="password">Password</label>
-                <input type="password" placeholder="enter.." id="password" />
-              </div>
-
-              <button class="btn-left">Cancel</button>
             </div>
-
             <!-- Right Side of the form -->
             <div class="form-right">
               <div class="form-box">
@@ -57,18 +53,16 @@
                   required
                 />
               </div>
-
               <div class="form-box">
-                <label for="number">Phone Number</label>
+                <label for="phone-number">Phone Number</label>
                 <input
                   type="number"
                   placeholder="+45 1344 343"
                   id="phone-number"
                 />
               </div>
-
               <div class="form-box">
-                <label for="Id">ID Type</label>
+                <label for="id-type">ID Type</label>
                 <select name="ID" id="id-type">
                   <option value="0" hidden>Select</option>
                   <option value="1">Citizenship</option>
@@ -78,33 +72,31 @@
               </div>
 
               <div class="form-box">
-                <label for="password">Confirm Password</label>
-                <input
-                  type="password"
-                  placeholder="enter.."
-                  id="confirm-password"
-                />
+                <label for="nationality">Nationality</label>
+                <select name="Nationality" id="nationality">
+                  <option value="0" hidden>Select</option>
+                </select>
               </div>
 
-              <button type="submit" class="btn-right" id="submitBtn">
-                Confirm
-              </button>
-
-              <div class="popup" id="popup">
-                <img src="./public/tick.png" alt="tick-image" />
-                <h2>Thank You</h2>
-                <p>Your details has been successfully submitted. Thanks!</p>
-
-                <button type="button" class="btn-right" id="okBtn">OK</button>
+              <div class="form-buttons">
+                <button type="button" class="btn-left">Cancel</button>
+                <button type="submit" class="btn-right" id="submitBtn">
+                  Confirm
+                </button>
               </div>
             </div>
           </div>
         </form>
-
         <p class="bottom-txt">
-          Already have and account? <a href="./sign-in.html">Login</a>
+          Already have an account? <a href="./sign-in.html">Login</a>
         </p>
       </div>
+    </div>
+    <div class="popup" id="popup">
+      <img src="./public/cross.png" alt="cross-image" id="popupImage" />
+      <h2 id="popupHeader">Error</h2>
+      <p id="popupMessage"></p>
+      <button type="button" class="btn-right" id="okBtn">OK</button>
     </div>
     <script src="index.js"></script>
   </body>

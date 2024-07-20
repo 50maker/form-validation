@@ -27,30 +27,48 @@ $(document).ready(function () {
     const idType = $("#id-type").val();
     const confirmPassword = $("#confirm-password").val().trim();
 
-    if (
-      fullName === "" ||
-      dob === "" ||
-      nationality === "0" ||
-      password === "" ||
-      email === "" ||
-      !/\S+@\S+\.\S+/.test(email) ||
-      phoneNumber === "" ||
-      idType === "0" ||
-      confirmPassword === "" ||
-      password !== confirmPassword
-    ) {
-      return false;
+    if (fullName === "") {
+      return { valid: false, message: "Full Name is required." };
     }
-    return true;
+    if (email === "" || !/\S+@\S+\.\S+/.test(email)) {
+      return { valid: false, message: "A valid email is required." };
+    }
+    if (password === "") {
+      return { valid: false, message: "Password is required." };
+    }
+    if (confirmPassword === "") {
+      return { valid: false, message: "Please confirm your password." };
+    }
+    if (password !== confirmPassword) {
+      return { valid: false, message: "Passwords do not match." };
+    }
+    if (phoneNumber === "") {
+      return { valid: false, message: "Phone Number is required." };
+    }
+    if (dob === "") {
+      return { valid: false, message: "Date of Birth is required." };
+    }
+    if (nationality === "0") {
+      return { valid: false, message: "Please select your nationality." };
+    }
+
+    if (idType === "0") {
+      return { valid: false, message: "Please select an ID type." };
+    }
+
+    return { valid: true };
   }
 
-  function openPopup() {
-    if (isFormValid()) {
-      collectFormData();
-      $("#popup").addClass("open-popup");
+  function openPopup(message, isSuccess) {
+    $("#popupMessage").text(message);
+    if (isSuccess) {
+      $("#popupImage").attr("src", "./public/tick.png");
+      $("#popupHeader").text("Success");
     } else {
-      alert("Please fill in all fields correctly.");
+      $("#popupImage").attr("src", "./public/cross.png");
+      $("#popupHeader").text("Error");
     }
+    $("#popup").addClass("open-popup");
   }
 
   function closePopup() {
@@ -61,7 +79,13 @@ $(document).ready(function () {
 
   $("#submitBtn").click(function (event) {
     event.preventDefault();
-    openPopup();
+    const validation = isFormValid();
+    if (validation.valid) {
+      collectFormData();
+      openPopup("Your details have been successfully submitted. Thanks!", true);
+    } else {
+      openPopup(validation.message, false);
+    }
   });
 
   function collectFormData() {
@@ -69,8 +93,8 @@ $(document).ready(function () {
       fullName: $("#full-name").val().trim(),
       dob: $("#dob").val().trim(),
       nationality: $("#nationality").val(),
-      password: $("#password").val().trim(),
       email: $("#email").val().trim(),
+      password: $("#password").val().trim(),
       phoneNumber: $("#phone-number").val().trim(),
       idType: $("#id-type").val(),
       confirmPassword: $("#confirm-password").val().trim(),
@@ -79,4 +103,9 @@ $(document).ready(function () {
     localStorage.setItem("formData", JSON.stringify(formDataArray));
     console.log(formDataArray);
   }
+
+  $(".btn-left").click(function (event) {
+    event.preventDefault();
+    $(this).closest("form")[0].reset(); // Reset the closest form element
+  });
 });
